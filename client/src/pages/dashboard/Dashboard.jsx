@@ -12,11 +12,12 @@ export default function Dashboard() {
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
+      const token = localStorage.getItem("token");
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:3000/api/employee", {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/employee`, {
           headers: {
-            authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpZCI6IjY3ZGU1Zjg1YjkwNmU4Mzc2NTI0Nzg1NSIsIm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiY29udGFjdCI6IjA5ODc3ODEyMzQiLCJpbWdVcmwiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kdXcyeG5hb2IvaW1hZ2UvdXBsb2FkL3YxNzQyNjI2NjkyL3hodWZscXMycDd5cHh4YmEzc3RpLnBuZyIsImlhdCI6MTc0MjYyNjg3NiwiZXhwIjoxNzQyNjI3NDgwfQ.NhH8Yb-PlxQHPnbZHa21tW-l8eyDN4z430ieJOZIkSw"
+            authorization:token
           }
         });
         setEmployees(response.data);
