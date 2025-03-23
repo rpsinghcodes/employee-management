@@ -1,7 +1,7 @@
 import Addemployee from "./pages/addemployee/Addemployee"
 import Dashboard from "./pages/dashboard/Dashboard"
 import Login from "./pages/login/Login";
-import Updateemployee from "./pages/updateprofile/UpdateEmployee";
+import Updateemployee from "./pages/updateprofile/Updateemployee";
 import { Routes, Route } from "react-router-dom";
 function App() {
 
